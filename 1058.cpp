@@ -1,6 +1,3 @@
-//This is a temporary version, include some test codes
-
-
 #include <iostream>
 #include <cstdio>
 
@@ -146,17 +143,6 @@ namespace LIST {
         }
         len = 0;
     }
-    
-    void print_list() {
-        NODE *temp = head;
-        for (int i = 0; i < len; i++) {
-            head = head->next;
-            cout << temp->value << " ";
-            temp = head;
-        }
-        if (len == 0)cout << "LIST IS EMPTY!";
-        cout << endl;
-    }
 }
 int n;
 
@@ -188,13 +174,6 @@ int main() {
                 break;
             case 5:
                 LIST::get_max();
-                break;
-                //below is test code
-            case 6:
-                LIST::print_list();
-                break;
-            case 7:
-                LIST::clear();
                 break;
         }
     }
