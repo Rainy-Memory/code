@@ -3,32 +3,38 @@
 //
 
 #include <iostream>
-using namespace std;
-const int maxn=55;
-int m,n;
-int value[maxn][maxn]={0};
-int p[maxn][maxn][maxn+maxn]={0};
 
-int main(){
-    //p[x1][x2][k]=max(p[x1-1][x2][k-1],p[x1][x2-1][k-1]);
-    cin>>m>>n;
-    for(int i=1;i<=m;i++){
-        for(int j=1;j<=n;j++){
-            cin>>value[i][j];
+using namespace std;
+const int maxn = 55;
+int m, n;
+int dx1[4] = {0, -1, -1, 0};
+int dx2[4] = {-1, 0, -1, 0};
+int value[maxn][maxn] = {0};
+int p[maxn][maxn][maxn + maxn] = {0};
+
+int main() {
+    cin >> m >> n;
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            cin >> value[i][j];
         }
     }
-    for(int k=2;k<=m+n;k++){
-        //x1 = i, x2 = j;
-        //    i =   1,   2, ..., k-1;
-        //k - i = k-1, k-2, ...,   1;
-        for(int i=1;i<=m;i++){
-            for(int j=i;j<=n;j++){
-            
+    p[1][1][2] = 0;
+    for (int k = 3; k <= m + n; k++) {
+        for (int i = 1; i <= m&&i<k; i++) {
+            for (int j = i + 1; j <= m&&j<k; j++) {
+                //if(i+j>k)break;
+                int temp = 0;
+                for (int l = 0; l < 4; l++) {
+                    if ((i + dx1[l] >= 1) && (i + dx1[l] <= m) && (j + dx2[l] >= 1) && (j + dx2[l] <= m)) {
+                        if (temp < p[i + dx1[l]][j + dx2[l]][k - 1])temp = p[i + dx1[l]][j + dx2[l]][k - 1];
+                    }
+                }
+                p[i][j][k] = temp + value[i][k - i] + value[j][k - j];
             }
         }
     }
-    cout<<p[m][n]<<endl;
-    
-    
+    int result = p[m - 1][m][m + n - 1];
+    cout << result << endl;
     return 0;
 }
