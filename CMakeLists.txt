@@ -3,4 +3,4 @@ project(code)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(code 1061.cpp)
+add_executable(code 1068.cpp)
