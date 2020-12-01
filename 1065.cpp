@@ -14,7 +14,6 @@ int n = 0;
 int a[10005] = {0};
 string str[1005];
 
-//TODO
 //sort
 template <class T>
 void sort(T *array, int start, int end, bool (*compare)(T,T)){
