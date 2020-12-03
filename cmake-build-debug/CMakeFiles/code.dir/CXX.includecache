@@ -6,15 +6,9 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/26307/CLionProjects/code/1066.cpp
-string
--
-cstring
--
+C:/Users/26307/CLionProjects/code/1005.cpp
 iostream
 -
-cstdio
--
-cstdlib
+stdio.h
 -
 

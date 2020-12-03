@@ -66,28 +66,95 @@ struct LinkList {
             temp->next = nullptr;
             tail->next = temp;
         }
+        else len--;
         len++;
     }
     
     void Delete(int i) {
         // TODO: delete element i
-        
+        if (i == 1) {
+            LinkListElement *i_th = head;
+            LinkListElement *i_th_after = i_th->next;
+            delete i_th;
+            head = i_th_after;
+        }
+        else if (i > 1 && i < len) {
+            LinkListElement *i_th_before = i_th_element(i - 1);
+            LinkListElement *i_th = i_th_before->next;
+            LinkListElement *i_th_after = i_th->next;
+            i_th_before->next = i_th_after;
+            delete i_th;
+        }
+        else if (i == len) {
+            LinkListElement *i_th_before = i_th_element(i - 1);
+            LinkListElement *i_th = i_th_before->next;
+            delete i_th;
+            i_th_before->next = nullptr;
+        }
+        else len++;
+        len--;
     }
     
     void EvenOddSwap() {
         // TODO: Swap the even-indexed element with the corresponding odd-indexed element.
+        if(len<=1)return;
+        int change_time=len/2;
+        int temp=0;
+        LinkListElement *odd_ptr=head;
+        LinkListElement *even_ptr=head->next;
+        if (len % 2) {
+            //odd
+            for(int i=1;i<=change_time;i++){
+                temp=odd_ptr->value;
+                odd_ptr->value=even_ptr->value;
+                even_ptr->value=temp;
+                if(i<change_time){
+                    odd_ptr=even_ptr->next;
+                    even_ptr=odd_ptr->next;
+                }
+            }
+        }
+        else {
+            //even
+            for(int i=1;i<=change_time;i++){
+                temp=odd_ptr->value;
+                odd_ptr->value=even_ptr->value;
+                even_ptr->value=temp;
+                if(i<change_time){
+                    odd_ptr=even_ptr->next;
+                    even_ptr=odd_ptr->next;
+                }
+            }
+        }
     }
     
     void Query(int i) {
         // TODO: Print the value of the i-th element on the screen.
+        LinkListElement *i_th = i_th_element(i);
+        cout << i_th->value << endl;
     }
     
     void QueryAll() {
         // TODO: Print the link list on the screen.
+        LinkListElement *temp = head;
+        for (int i = 0; i < len - 1; i++) {
+            cout << temp->value << " ";
+            temp = temp->next;
+        }
+        cout << temp->value << endl;
     }
     
     void ClearMemory() {
         // TODO: Clear the memory.
+        LinkListElement *temp = head;
+        for (int i = 0; i < len - 1; i++) {
+            head = head->next;
+            delete temp;
+            temp = head;
+        }
+        delete head;
+        head = nullptr;
+        len = 0;
     }
 };
 
