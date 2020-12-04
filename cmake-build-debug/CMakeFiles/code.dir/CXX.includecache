@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/26307/CLionProjects/code/1064.cpp
+C:/Users/26307/CLionProjects/code/test_header.cpp
 iostream
 -
+test_header.h
+C:/Users/26307/CLionProjects/code/test_header.h
+
+C:/Users/26307/CLionProjects/code/test_header.h
 

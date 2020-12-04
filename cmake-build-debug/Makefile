@@ -142,32 +142,59 @@ code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/build
 .PHONY : code/fast
 
-1064.obj: 1064.cpp.obj
+test.obj: test.cpp.obj
 
-.PHONY : 1064.obj
+.PHONY : test.obj
 
 # target to build an object file
-1064.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/1064.cpp.obj
-.PHONY : 1064.cpp.obj
+test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.obj
+.PHONY : test.cpp.obj
 
-1064.i: 1064.cpp.i
+test.i: test.cpp.i
 
-.PHONY : 1064.i
+.PHONY : test.i
 
 # target to preprocess a source file
-1064.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/1064.cpp.i
-.PHONY : 1064.cpp.i
+test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.i
+.PHONY : test.cpp.i
 
-1064.s: 1064.cpp.s
+test.s: test.cpp.s
 
-.PHONY : 1064.s
+.PHONY : test.s
 
 # target to generate assembly for a file
-1064.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/1064.cpp.s
-.PHONY : 1064.cpp.s
+test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.s
+.PHONY : test.cpp.s
+
+test_header.obj: test_header.cpp.obj
+
+.PHONY : test_header.obj
+
+# target to build an object file
+test_header.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test_header.cpp.obj
+.PHONY : test_header.cpp.obj
+
+test_header.i: test_header.cpp.i
+
+.PHONY : test_header.i
+
+# target to preprocess a source file
+test_header.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test_header.cpp.i
+.PHONY : test_header.cpp.i
+
+test_header.s: test_header.cpp.s
+
+.PHONY : test_header.s
+
+# target to generate assembly for a file
+test_header.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test_header.cpp.s
+.PHONY : test_header.cpp.s
 
 # Help Target
 help:
@@ -178,9 +205,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... code
-	@echo ... 1064.obj
-	@echo ... 1064.i
-	@echo ... 1064.s
+	@echo ... test.obj
+	@echo ... test.i
+	@echo ... test.s
+	@echo ... test_header.obj
+	@echo ... test_header.i
+	@echo ... test_header.s
 .PHONY : help
 
 

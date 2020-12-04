@@ -1,15 +1,14 @@
 #include <iostream>
+#include "test_header.h"
 
 using namespace std;
 
-int &funA(int a,int b){
-    return a;
-}
-
-
 int main() {
-    char a='0';
-    cout<<a<<endl;
+    test a;
+    a.print();
+    a.change(2);
+    a.print();
+    
     
     return 0;
 }
