@@ -76,27 +76,27 @@ include CMakeFiles/code.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/code.dir/flags.make
 
-CMakeFiles/code.dir/1005.cpp.obj: CMakeFiles/code.dir/flags.make
-CMakeFiles/code.dir/1005.cpp.obj: ../1005.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\26307\CLionProjects\code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/code.dir/1005.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\code.dir\1005.cpp.obj -c C:\Users\26307\CLionProjects\code\1005.cpp
+CMakeFiles/code.dir/1064.cpp.obj: CMakeFiles/code.dir/flags.make
+CMakeFiles/code.dir/1064.cpp.obj: ../1064.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\26307\CLionProjects\code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/code.dir/1064.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\code.dir\1064.cpp.obj -c C:\Users\26307\CLionProjects\code\1064.cpp
 
-CMakeFiles/code.dir/1005.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/code.dir/1005.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\26307\CLionProjects\code\1005.cpp > CMakeFiles\code.dir\1005.cpp.i
+CMakeFiles/code.dir/1064.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/code.dir/1064.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\26307\CLionProjects\code\1064.cpp > CMakeFiles\code.dir\1064.cpp.i
 
-CMakeFiles/code.dir/1005.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/code.dir/1005.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\26307\CLionProjects\code\1005.cpp -o CMakeFiles\code.dir\1005.cpp.s
+CMakeFiles/code.dir/1064.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/code.dir/1064.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\26307\CLionProjects\code\1064.cpp -o CMakeFiles\code.dir\1064.cpp.s
 
 # Object files for target code
 code_OBJECTS = \
-"CMakeFiles/code.dir/1005.cpp.obj"
+"CMakeFiles/code.dir/1064.cpp.obj"
 
 # External object files for target code
 code_EXTERNAL_OBJECTS =
 
-code.exe: CMakeFiles/code.dir/1005.cpp.obj
+code.exe: CMakeFiles/code.dir/1064.cpp.obj
 code.exe: CMakeFiles/code.dir/build.make
 code.exe: CMakeFiles/code.dir/linklibs.rsp
 code.exe: CMakeFiles/code.dir/objects1.rsp
