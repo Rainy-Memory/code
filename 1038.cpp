@@ -1,7 +1,3 @@
-//
-// Created by Rainy Memory on 2020/12/3.
-//
-
 #include <iostream>
 #include <cstring>
 
@@ -29,16 +25,17 @@ int main() {
     return 0;
 }
 
-int * &funA(int ** &x) {
-    *x = new int[n];
+int *&funA(int **&x) {
+    x = new int *;
     return *x;
 }
 
 void funB(int *c, int **p, int **q) {
-    for(int i=0;i<n;i++){
-        c[i]=(*p)[i]*(*q)[i];
+    for (int i = 0; i < n; i++) {
+        c[i] = (*p)[i] * (*q)[i];
         
     }
-    delete []q;
-    delete []p;
+    
+    delete q;
+    delete p;
 }

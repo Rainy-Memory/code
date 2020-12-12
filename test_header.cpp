@@ -10,10 +10,32 @@ test::test(){
     value=1;
 }
 
+test::test(test &b) {
+    value=b.value;
+}
+
+test::test(test &&b){
+    value=b.value;
+}
+
+test::test(int i) {
+    value=i;
+}
+
 void test::change(int i) {
     value=i;
 }
 
+void test::change(int &i) {
+    value=i;
+}
+
+
 void test::print() {
     cout<<value<<endl;
+}
+
+test test::temp_value() {
+    test a(3);
+    return a;
 }

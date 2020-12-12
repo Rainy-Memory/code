@@ -12,9 +12,19 @@ private:
 public:
     test();
     
+    test(test &);
+    
+    test(test &&);
+    
+    test(int);
+    
+    test temp_value();
+    
     void print();
     
     void change(int);
+    
+    void change(int &);
     
 };
 
