@@ -83,12 +83,6 @@
 		<Unit filename="C:/Users/26307/CLionProjects/code/test.cpp">
 			<Option target="code"/>
 		</Unit>
-		<Unit filename="C:/Users/26307/CLionProjects/code/test_header.cpp">
-			<Option target="code"/>
-		</Unit>
-		<Unit filename="C:/Users/26307/CLionProjects/code/test_header.h">
-			<Option target="code"/>
-		</Unit>
 		<Unit filename="C:/Users/26307/CLionProjects/code/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

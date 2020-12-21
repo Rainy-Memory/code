@@ -27,13 +27,12 @@ int main() {
 
 int *&funA(int **&x) {
     x = new int *;
-    return *x;
+    return (*x);
 }
 
 void funB(int *c, int **p, int **q) {
     for (int i = 0; i < n; i++) {
         c[i] = (*p)[i] * (*q)[i];
-        
     }
     
     delete q;

@@ -61,7 +61,6 @@ public:
         len = temp_len;
         delete[] ch;
         ch = temp_string;
-        temp_string = nullptr;
     }
     
     int get_len() {

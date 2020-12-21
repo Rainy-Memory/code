@@ -6,7 +6,9 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/26307/CLionProjects/code/1033.cpp
+C:/Users/26307/CLionProjects/code/test.cpp
 iostream
+-
+iomanip
 -
 

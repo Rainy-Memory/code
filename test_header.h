@@ -8,6 +8,7 @@
 class test {
 private:
     int value = 0;
+    std::string msg="";
 
 public:
     test();
@@ -25,6 +26,14 @@ public:
     void change(int);
     
     void change(int &);
+    
+    int getValue() const;
+    
+    const std::string &getMsg() const;
+    
+    bool operator==(const test &rhs) const;
+    
+    bool operator!=(const test &rhs) const;
     
 };
 

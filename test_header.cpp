@@ -39,3 +39,20 @@ test test::temp_value() {
     test a(3);
     return a;
 }
+
+int test::getValue() const {
+    return value;
+}
+
+const string &test::getMsg() const {
+    return msg;
+}
+
+bool test::operator==(const test &rhs) const {
+    return value == rhs.value &&
+           msg == rhs.msg;
+}
+
+bool test::operator!=(const test &rhs) const {
+    return !(rhs == *this);
+}

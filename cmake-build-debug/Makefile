@@ -169,33 +169,6 @@ test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.s
 .PHONY : test.cpp.s
 
-test_header.obj: test_header.cpp.obj
-
-.PHONY : test_header.obj
-
-# target to build an object file
-test_header.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test_header.cpp.obj
-.PHONY : test_header.cpp.obj
-
-test_header.i: test_header.cpp.i
-
-.PHONY : test_header.i
-
-# target to preprocess a source file
-test_header.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test_header.cpp.i
-.PHONY : test_header.cpp.i
-
-test_header.s: test_header.cpp.s
-
-.PHONY : test_header.s
-
-# target to generate assembly for a file
-test_header.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test_header.cpp.s
-.PHONY : test_header.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -208,9 +181,6 @@ help:
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s
-	@echo ... test_header.obj
-	@echo ... test_header.i
-	@echo ... test_header.s
 .PHONY : help
 
 
