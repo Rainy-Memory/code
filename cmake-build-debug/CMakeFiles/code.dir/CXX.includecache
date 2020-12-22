@@ -6,9 +6,23 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/26307/CLionProjects/code/matrix.hpp
+cstddef
+-
+initializer_list
+-
+utility
+-
+iterator
+-
+iostream
+-
+
 C:/Users/26307/CLionProjects/code/test.cpp
 iostream
 -
 iomanip
 -
+matrix.hpp
+C:/Users/26307/CLionProjects/code/matrix.hpp
 
