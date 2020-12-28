@@ -9,7 +9,7 @@ Rational::Rational() : num(1), den(1) {
     ReductFraction();
 }
 
-Rational::Rational(int num, int den) : num(num), den(den) {
+Rational::Rational(int num, int den = 1) : num(num), den(den) {
     ReductFraction();
 }
 
@@ -80,6 +80,11 @@ bool Rational::operator>=(const Rational &rhs) const {
     return !(*this < rhs);
 }
 
+bool Rational::operator!() const{
+    if(num==0)return true;
+    else return false;
+}
+
 Rational Rational::operator-() const {
     return Rational(-num, den);
 }
@@ -102,11 +107,13 @@ Rational Rational::operator/(const Rational &r) const {
 }
 
 Rational &Rational::operator++() {
+    //std::cout<<"pre++"<<std::endl;
     num += den;
     return *this;
 }
 
 Rational Rational::operator++(int) {
+    //std::cout<<"suf++"<<std::endl;
     Rational temp = *this;
     num += den;
     return temp;

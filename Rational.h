@@ -46,6 +46,8 @@ public:
     
     bool operator>=(const Rational &rhs) const;
     
+    bool operator!() const;
+    
     Rational operator-() const;
     
     Rational operator+(const Rational &r) const;

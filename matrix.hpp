@@ -663,12 +663,16 @@ namespace sjtu {
     
     template<class U>
     std::ostream &operator<<(std::ostream &os, const Matrix<U> &matrix) {
+        for (int j = 0; j < 2*matrix.matrix_column-1; j++)os<<"-";
+        os<<endl;
         for (int i = 0; i < matrix.matrix_row; i++) {
             for (int j = 0; j < matrix.matrix_column; j++) {
                 os << matrix(i, j) << " ";
             }
             os << std::endl;
         }
+        for (int j = 0; j < 2*matrix.matrix_column-1; j++)os<<"-";
+        //os<<endl;
         return os;
     }
     
