@@ -80,19 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/BookManagementSystem/book.cpp">
+		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/ArbitraryPrecisionInt.cpp">
 			<Option target="code"/>
 		</Unit>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/BookManagementSystem/book.h">
+		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/ArbitraryPrecisionInt.h">
 			<Option target="code"/>
 		</Unit>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/BookManagementSystem/function.cpp">
-			<Option target="code"/>
-		</Unit>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/BookManagementSystem/function.h">
-			<Option target="code"/>
-		</Unit>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/BookManagementSystem/main_program.cpp">
+		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/test.cpp">
 			<Option target="code"/>
 		</Unit>
 		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/CMakeLists.txt">

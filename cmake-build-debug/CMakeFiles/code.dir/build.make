@@ -76,62 +76,47 @@ include CMakeFiles/code.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/code.dir/flags.make
 
-CMakeFiles/code.dir/BookManagementSystem/book.cpp.obj: CMakeFiles/code.dir/flags.make
-CMakeFiles/code.dir/BookManagementSystem/book.cpp.obj: ../BookManagementSystem/book.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\RainyMemory's Workplace\CLionProjects\code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/code.dir/BookManagementSystem/book.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\code.dir\BookManagementSystem\book.cpp.obj -c "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\book.cpp"
+CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj: CMakeFiles/code.dir/flags.make
+CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj: ../ArbitraryPrecisionInt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\RainyMemory's Workplace\CLionProjects\code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\code.dir\ArbitraryPrecisionInt.cpp.obj -c "C:\RainyMemory's Workplace\CLionProjects\code\ArbitraryPrecisionInt.cpp"
 
-CMakeFiles/code.dir/BookManagementSystem/book.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/code.dir/BookManagementSystem/book.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\book.cpp" > CMakeFiles\code.dir\BookManagementSystem\book.cpp.i
+CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\RainyMemory's Workplace\CLionProjects\code\ArbitraryPrecisionInt.cpp" > CMakeFiles\code.dir\ArbitraryPrecisionInt.cpp.i
 
-CMakeFiles/code.dir/BookManagementSystem/book.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/code.dir/BookManagementSystem/book.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\book.cpp" -o CMakeFiles\code.dir\BookManagementSystem\book.cpp.s
+CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\RainyMemory's Workplace\CLionProjects\code\ArbitraryPrecisionInt.cpp" -o CMakeFiles\code.dir\ArbitraryPrecisionInt.cpp.s
 
-CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.obj: CMakeFiles/code.dir/flags.make
-CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.obj: ../BookManagementSystem/main_program.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\RainyMemory's Workplace\CLionProjects\code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\code.dir\BookManagementSystem\main_program.cpp.obj -c "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\main_program.cpp"
+CMakeFiles/code.dir/test.cpp.obj: CMakeFiles/code.dir/flags.make
+CMakeFiles/code.dir/test.cpp.obj: ../test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\RainyMemory's Workplace\CLionProjects\code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/code.dir/test.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\code.dir\test.cpp.obj -c "C:\RainyMemory's Workplace\CLionProjects\code\test.cpp"
 
-CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\main_program.cpp" > CMakeFiles\code.dir\BookManagementSystem\main_program.cpp.i
+CMakeFiles/code.dir/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/code.dir/test.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\RainyMemory's Workplace\CLionProjects\code\test.cpp" > CMakeFiles\code.dir\test.cpp.i
 
-CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\main_program.cpp" -o CMakeFiles\code.dir\BookManagementSystem\main_program.cpp.s
-
-CMakeFiles/code.dir/BookManagementSystem/function.cpp.obj: CMakeFiles/code.dir/flags.make
-CMakeFiles/code.dir/BookManagementSystem/function.cpp.obj: ../BookManagementSystem/function.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\RainyMemory's Workplace\CLionProjects\code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/code.dir/BookManagementSystem/function.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\code.dir\BookManagementSystem\function.cpp.obj -c "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\function.cpp"
-
-CMakeFiles/code.dir/BookManagementSystem/function.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/code.dir/BookManagementSystem/function.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\function.cpp" > CMakeFiles\code.dir\BookManagementSystem\function.cpp.i
-
-CMakeFiles/code.dir/BookManagementSystem/function.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/code.dir/BookManagementSystem/function.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\RainyMemory's Workplace\CLionProjects\code\BookManagementSystem\function.cpp" -o CMakeFiles\code.dir\BookManagementSystem\function.cpp.s
+CMakeFiles/code.dir/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/code.dir/test.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\RainyMemory's Workplace\CLionProjects\code\test.cpp" -o CMakeFiles\code.dir\test.cpp.s
 
 # Object files for target code
 code_OBJECTS = \
-"CMakeFiles/code.dir/BookManagementSystem/book.cpp.obj" \
-"CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.obj" \
-"CMakeFiles/code.dir/BookManagementSystem/function.cpp.obj"
+"CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj" \
+"CMakeFiles/code.dir/test.cpp.obj"
 
 # External object files for target code
 code_EXTERNAL_OBJECTS =
 
-code.exe: CMakeFiles/code.dir/BookManagementSystem/book.cpp.obj
-code.exe: CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.obj
-code.exe: CMakeFiles/code.dir/BookManagementSystem/function.cpp.obj
+code.exe: CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj
+code.exe: CMakeFiles/code.dir/test.cpp.obj
 code.exe: CMakeFiles/code.dir/build.make
 code.exe: CMakeFiles/code.dir/linklibs.rsp
 code.exe: CMakeFiles/code.dir/objects1.rsp
 code.exe: CMakeFiles/code.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\RainyMemory's Workplace\CLionProjects\code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable code.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\RainyMemory's Workplace\CLionProjects\code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable code.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\code.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

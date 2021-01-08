@@ -142,86 +142,59 @@ code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/build
 .PHONY : code/fast
 
-BookManagementSystem/book.obj: BookManagementSystem/book.cpp.obj
+ArbitraryPrecisionInt.obj: ArbitraryPrecisionInt.cpp.obj
 
-.PHONY : BookManagementSystem/book.obj
-
-# target to build an object file
-BookManagementSystem/book.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/book.cpp.obj
-.PHONY : BookManagementSystem/book.cpp.obj
-
-BookManagementSystem/book.i: BookManagementSystem/book.cpp.i
-
-.PHONY : BookManagementSystem/book.i
-
-# target to preprocess a source file
-BookManagementSystem/book.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/book.cpp.i
-.PHONY : BookManagementSystem/book.cpp.i
-
-BookManagementSystem/book.s: BookManagementSystem/book.cpp.s
-
-.PHONY : BookManagementSystem/book.s
-
-# target to generate assembly for a file
-BookManagementSystem/book.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/book.cpp.s
-.PHONY : BookManagementSystem/book.cpp.s
-
-BookManagementSystem/function.obj: BookManagementSystem/function.cpp.obj
-
-.PHONY : BookManagementSystem/function.obj
+.PHONY : ArbitraryPrecisionInt.obj
 
 # target to build an object file
-BookManagementSystem/function.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/function.cpp.obj
-.PHONY : BookManagementSystem/function.cpp.obj
+ArbitraryPrecisionInt.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj
+.PHONY : ArbitraryPrecisionInt.cpp.obj
 
-BookManagementSystem/function.i: BookManagementSystem/function.cpp.i
+ArbitraryPrecisionInt.i: ArbitraryPrecisionInt.cpp.i
 
-.PHONY : BookManagementSystem/function.i
+.PHONY : ArbitraryPrecisionInt.i
 
 # target to preprocess a source file
-BookManagementSystem/function.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/function.cpp.i
-.PHONY : BookManagementSystem/function.cpp.i
+ArbitraryPrecisionInt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.i
+.PHONY : ArbitraryPrecisionInt.cpp.i
 
-BookManagementSystem/function.s: BookManagementSystem/function.cpp.s
+ArbitraryPrecisionInt.s: ArbitraryPrecisionInt.cpp.s
 
-.PHONY : BookManagementSystem/function.s
+.PHONY : ArbitraryPrecisionInt.s
 
 # target to generate assembly for a file
-BookManagementSystem/function.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/function.cpp.s
-.PHONY : BookManagementSystem/function.cpp.s
+ArbitraryPrecisionInt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.s
+.PHONY : ArbitraryPrecisionInt.cpp.s
 
-BookManagementSystem/main_program.obj: BookManagementSystem/main_program.cpp.obj
+test.obj: test.cpp.obj
 
-.PHONY : BookManagementSystem/main_program.obj
+.PHONY : test.obj
 
 # target to build an object file
-BookManagementSystem/main_program.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.obj
-.PHONY : BookManagementSystem/main_program.cpp.obj
+test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.obj
+.PHONY : test.cpp.obj
 
-BookManagementSystem/main_program.i: BookManagementSystem/main_program.cpp.i
+test.i: test.cpp.i
 
-.PHONY : BookManagementSystem/main_program.i
+.PHONY : test.i
 
 # target to preprocess a source file
-BookManagementSystem/main_program.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.i
-.PHONY : BookManagementSystem/main_program.cpp.i
+test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.i
+.PHONY : test.cpp.i
 
-BookManagementSystem/main_program.s: BookManagementSystem/main_program.cpp.s
+test.s: test.cpp.s
 
-.PHONY : BookManagementSystem/main_program.s
+.PHONY : test.s
 
 # target to generate assembly for a file
-BookManagementSystem/main_program.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.s
-.PHONY : BookManagementSystem/main_program.cpp.s
+test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.s
+.PHONY : test.cpp.s
 
 # Help Target
 help:
@@ -232,15 +205,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... code
-	@echo ... BookManagementSystem/book.obj
-	@echo ... BookManagementSystem/book.i
-	@echo ... BookManagementSystem/book.s
-	@echo ... BookManagementSystem/function.obj
-	@echo ... BookManagementSystem/function.i
-	@echo ... BookManagementSystem/function.s
-	@echo ... BookManagementSystem/main_program.obj
-	@echo ... BookManagementSystem/main_program.i
-	@echo ... BookManagementSystem/main_program.s
+	@echo ... ArbitraryPrecisionInt.obj
+	@echo ... ArbitraryPrecisionInt.i
+	@echo ... ArbitraryPrecisionInt.s
+	@echo ... test.obj
+	@echo ... test.i
+	@echo ... test.s
 .PHONY : help
 
 

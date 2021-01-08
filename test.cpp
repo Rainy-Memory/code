@@ -17,24 +17,17 @@ int main(int argc,char* argv[]){
 
 #ifdef basic_test
 
+#include "ArbitraryPrecisionInt.h"
+
 int main() {
-    //cout<<(int)"👀"<<endl;
-    fstream fs;
-    fs.open("testbi.in", fstream::out | fstream::binary);
-    int write_num[10]={123,8739,2789,546,56,63,35,234,324,324},ptr;
-    for (int i = 0; i < 10; i++) {
-        ptr=write_num[i];
-        fs.write(reinterpret_cast<char *>(&ptr), sizeof(int));
+    ArbitraryPrecisionInt a, b;
+    while (cin >> a >> b) {
+        cout << a + b << endl;
+        cout << a - b << endl;
+        cout << a * b << endl;
+        cout << a / b << endl;
+        cout << a % b << endl;
     }
-    fs.close();
-    fs.open("testbi.in", fstream::in | fstream::binary);
-    int j;
-    fs.read(reinterpret_cast<char *>(&j), sizeof(int));
-    while (!fs.eof()) {
-        cout << j << " ";
-        fs.read(reinterpret_cast<char *>(&j), sizeof(int));
-    }
-    fs.close();
 }
 
 #endif

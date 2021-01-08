@@ -6,23 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/RainyMemory's Workplace/CLionProjects/code/BookManagementSystem/book.h
+C:/RainyMemory's Workplace/CLionProjects/code/ArbitraryPrecisionInt.cpp
+ArbitraryPrecisionInt.h
+C:/RainyMemory's Workplace/CLionProjects/code/ArbitraryPrecisionInt.h
+
+C:/RainyMemory's Workplace/CLionProjects/code/ArbitraryPrecisionInt.h
+string
+-
 cstring
 -
 iostream
 -
-iomanip
--
-fstream
--
-cstdio
--
-
-C:/RainyMemory's Workplace/CLionProjects/code/BookManagementSystem/function.cpp
-function.h
-C:/RainyMemory's Workplace/CLionProjects/code/BookManagementSystem/function.h
-
-C:/RainyMemory's Workplace/CLionProjects/code/BookManagementSystem/function.h
-book.h
-C:/RainyMemory's Workplace/CLionProjects/code/BookManagementSystem/book.h
 

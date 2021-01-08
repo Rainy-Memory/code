@@ -3,4 +3,4 @@ project(code)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(code BookManagementSystem/book.h BookManagementSystem/book.cpp BookManagementSystem/main_program.cpp BookManagementSystem/function.cpp BookManagementSystem/function.h)
+add_executable(code ArbitraryPrecisionInt.cpp test.cpp)

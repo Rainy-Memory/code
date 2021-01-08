@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/code.dir/BookManagementSystem/book.cpp.obj"
-  "CMakeFiles/code.dir/BookManagementSystem/function.cpp.obj"
-  "CMakeFiles/code.dir/BookManagementSystem/main_program.cpp.obj"
+  "CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj"
+  "CMakeFiles/code.dir/test.cpp.obj"
   "code.exe"
   "code.exe.manifest"
   "code.pdb"

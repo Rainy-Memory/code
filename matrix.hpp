@@ -10,6 +10,8 @@
 #include <iostream>
 
 using std::size_t;
+using std::endl;
+using std::cout;
 
 namespace sjtu {
     
@@ -95,6 +97,7 @@ namespace sjtu {
         }
         
         Matrix &operator=(const Matrix &o) {
+            if(this==&o)return *this;
             std::pair<size_t, size_t> sz = o.size();
             matrix_row = sz.first;
             matrix_column = sz.second;
@@ -108,6 +111,7 @@ namespace sjtu {
         
         template<class U>
         Matrix &operator=(const Matrix<U> &o) {
+            if(this==&o)return *this;
             std::pair<size_t, size_t> sz = o.size();
             matrix_row = sz.first;
             matrix_column = sz.second;
