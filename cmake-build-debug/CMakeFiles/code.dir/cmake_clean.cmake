@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj"
-  "CMakeFiles/code.dir/test.cpp.obj"
+  "CMakeFiles/code.dir/main.cpp.obj"
   "code.exe"
   "code.exe.manifest"
   "code.pdb"

@@ -4,8 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/RainyMemory's Workplace/CLionProjects/code/ArbitraryPrecisionInt.cpp" "C:/RainyMemory's Workplace/CLionProjects/code/cmake-build-debug/CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj"
-  "C:/RainyMemory's Workplace/CLionProjects/code/test.cpp" "C:/RainyMemory's Workplace/CLionProjects/code/cmake-build-debug/CMakeFiles/code.dir/test.cpp.obj"
+  "C:/RainyMemory's Workplace/CLionProjects/code/main.cpp" "C:/RainyMemory's Workplace/CLionProjects/code/cmake-build-debug/CMakeFiles/code.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

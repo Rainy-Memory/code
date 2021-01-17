@@ -80,13 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/ArbitraryPrecisionInt.cpp">
-			<Option target="code"/>
-		</Unit>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/ArbitraryPrecisionInt.h">
-			<Option target="code"/>
-		</Unit>
-		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/test.cpp">
+		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/main.cpp">
 			<Option target="code"/>
 		</Unit>
 		<Unit filename="C:/RainyMemory&apos;s Workplace/CLionProjects/code/CMakeLists.txt">

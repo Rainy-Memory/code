@@ -142,59 +142,32 @@ code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/build
 .PHONY : code/fast
 
-ArbitraryPrecisionInt.obj: ArbitraryPrecisionInt.cpp.obj
+main.obj: main.cpp.obj
 
-.PHONY : ArbitraryPrecisionInt.obj
-
-# target to build an object file
-ArbitraryPrecisionInt.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.obj
-.PHONY : ArbitraryPrecisionInt.cpp.obj
-
-ArbitraryPrecisionInt.i: ArbitraryPrecisionInt.cpp.i
-
-.PHONY : ArbitraryPrecisionInt.i
-
-# target to preprocess a source file
-ArbitraryPrecisionInt.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.i
-.PHONY : ArbitraryPrecisionInt.cpp.i
-
-ArbitraryPrecisionInt.s: ArbitraryPrecisionInt.cpp.s
-
-.PHONY : ArbitraryPrecisionInt.s
-
-# target to generate assembly for a file
-ArbitraryPrecisionInt.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/ArbitraryPrecisionInt.cpp.s
-.PHONY : ArbitraryPrecisionInt.cpp.s
-
-test.obj: test.cpp.obj
-
-.PHONY : test.obj
+.PHONY : main.obj
 
 # target to build an object file
-test.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.obj
-.PHONY : test.cpp.obj
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-test.i: test.cpp.i
+main.i: main.cpp.i
 
-.PHONY : test.i
+.PHONY : main.i
 
 # target to preprocess a source file
-test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.i
-.PHONY : test.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-test.s: test.cpp.s
+main.s: main.cpp.s
 
-.PHONY : test.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/test.cpp.s
-.PHONY : test.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.dir\build.make CMakeFiles/code.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -205,12 +178,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... code
-	@echo ... ArbitraryPrecisionInt.obj
-	@echo ... ArbitraryPrecisionInt.i
-	@echo ... ArbitraryPrecisionInt.s
-	@echo ... test.obj
-	@echo ... test.i
-	@echo ... test.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

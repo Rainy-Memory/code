@@ -38,6 +38,16 @@ ArbitraryPrecisionInt::ArbitraryPrecisionInt(int o) {
     }
 }
 
+ArbitraryPrecisionInt::ArbitraryPrecisionInt(double o) {
+    int oo=(int)o;
+    *this=ArbitraryPrecisionInt(oo);
+}
+
+ArbitraryPrecisionInt::ArbitraryPrecisionInt(bool o) {
+    if (o)*this = ArbitraryPrecisionIntOne;
+    else *this = ArbitraryPrecisionIntZero;
+}
+
 ArbitraryPrecisionInt::ArbitraryPrecisionInt(string str_) {
     if (str_[0] == '-') {
         str_.erase(0, 1);
@@ -73,6 +83,11 @@ ArbitraryPrecisionInt::ArbitraryPrecisionInt(const ArbitraryPrecisionInt &o) : s
     for (int i = 0; i < len; i++)num[i] = o.num[i];
 }
 
+ArbitraryPrecisionInt::ArbitraryPrecisionInt(ArbitraryPrecisionInt &&o) : str(o.str), len(o.len), positive(o.positive) {
+    num = o.num;
+    o.num = nullptr;
+}
+
 ArbitraryPrecisionInt &ArbitraryPrecisionInt::operator=(const ArbitraryPrecisionInt &o) {
     if (this == &o)return *this;
     delete[] num;
@@ -84,12 +99,20 @@ ArbitraryPrecisionInt &ArbitraryPrecisionInt::operator=(const ArbitraryPrecision
     return *this;
 }
 
+ArbitraryPrecisionInt& ArbitraryPrecisionInt::operator=(ArbitraryPrecisionInt &&o){
+    str=o.str;
+    len=o.len;
+    positive=o.positive;
+    num = o.num;
+    o.num = nullptr;
+}
+
 ArbitraryPrecisionInt::~ArbitraryPrecisionInt() {
     delete[] num;
 }
 
 ArbitraryPrecisionInt ArbitraryPrecisionInt::operator-() {
-    if (*this == 0)return *this;
+    if (*this == ArbitraryPrecisionIntZero)return *this;
     positive = (!positive);
     return *this;
 }
@@ -120,24 +143,24 @@ ArbitraryPrecisionInt &ArbitraryPrecisionInt::operator%=(const ArbitraryPrecisio
 }
 
 ArbitraryPrecisionInt &ArbitraryPrecisionInt::operator++() {
-    *this += 1;
+    *this += ArbitraryPrecisionIntOne;
     return *this;
 }
 
 ArbitraryPrecisionInt ArbitraryPrecisionInt::operator++(int) {
     ArbitraryPrecisionInt temp = *this;
-    *this += 1;
+    *this += ArbitraryPrecisionIntOne;
     return temp;
 }
 
 ArbitraryPrecisionInt &ArbitraryPrecisionInt::operator--() {
-    *this -= 1;
+    *this -= ArbitraryPrecisionIntOne;
     return *this;
 }
 
 ArbitraryPrecisionInt ArbitraryPrecisionInt::operator--(int) {
     ArbitraryPrecisionInt temp = *this;
-    *this -= 1;
+    *this -= ArbitraryPrecisionIntOne;
     return temp;
 }
 
@@ -348,8 +371,8 @@ ArbitraryPrecisionInt operator*(const ArbitraryPrecisionInt &o1, const Arbitrary
 }
 
 ArbitraryPrecisionInt operator/(const ArbitraryPrecisionInt &o1, const ArbitraryPrecisionInt &o2) {
-    if (o2 == 0)throw DevidedByZero();
-    if (o1 == 0)return o1;
+    if (o2 == ArbitraryPrecisionIntZero)throw DevidedByZero();
+    if (o1 == ArbitraryPrecisionIntZero)return o1;
     ArbitraryPrecisionInt t1 = abs(o1), t2 = abs(o2);
     if (t1 < t2) {
         if (o1.positive == o2.positive)return ArbitraryPrecisionInt(0);
@@ -376,7 +399,7 @@ ArbitraryPrecisionInt operator/(const ArbitraryPrecisionInt &o1, const Arbitrary
         }
         result.multiple_ten(1);
         if (cnt == 10)cnt = 9;
-        result += cnt;
+        result += (ArbitraryPrecisionInt)cnt;
         t1 -= temp;
     }
     if (o1.positive != o2.positive) {
@@ -388,4 +411,32 @@ ArbitraryPrecisionInt operator/(const ArbitraryPrecisionInt &o1, const Arbitrary
 
 ArbitraryPrecisionInt operator%(const ArbitraryPrecisionInt &o1, const ArbitraryPrecisionInt &o2) {
     return o1 - ((o1 / o2) * o2);
+}
+
+ArbitraryPrecisionInt::operator int() const {
+    int result=0;
+    for(int i=len-1;i>=0;i--){
+        result*=10;
+        result+=num[i];
+    }
+    return result;
+}
+
+ArbitraryPrecisionInt::operator double() const {
+    double result=0;
+    for(int i=len-1;i>=0;i--){
+        result*=10;
+        result+=num[i];
+    }
+    return result;
+}
+
+ArbitraryPrecisionInt::operator bool() const {
+    if(*this==ArbitraryPrecisionIntZero)return false;
+    else return true;
+}
+ArbitraryPrecisionInt::operator string() const {
+    string result=(positive?"":"-");
+    result+=str;
+    return result;
 }

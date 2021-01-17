@@ -20,14 +20,10 @@ int main(int argc,char* argv[]){
 #include "ArbitraryPrecisionInt.h"
 
 int main() {
-    ArbitraryPrecisionInt a, b;
-    while (cin >> a >> b) {
-        cout << a + b << endl;
-        cout << a - b << endl;
-        cout << a * b << endl;
-        cout << a / b << endl;
-        cout << a % b << endl;
-    }
+    int a;
+    double b;
+    bool c;
+    
 }
 
 #endif

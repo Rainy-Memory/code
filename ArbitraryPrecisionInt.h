@@ -14,7 +14,8 @@ using std::istream;
 using std::ostream;
 using std::endl;
 
-class DevidedByZero {};
+class DevidedByZero {
+};
 
 class ArbitraryPrecisionInt {
 
@@ -60,15 +61,23 @@ private:
 public:
     ArbitraryPrecisionInt();
     
-    ArbitraryPrecisionInt(int o);
+    explicit ArbitraryPrecisionInt(int o);
     
-    ArbitraryPrecisionInt(string str);
+    explicit ArbitraryPrecisionInt(double o);
+    
+    explicit ArbitraryPrecisionInt(bool o);
+    
+    explicit ArbitraryPrecisionInt(string str);
     
     ArbitraryPrecisionInt(int *o, int size, bool pos);
     
     ArbitraryPrecisionInt(const ArbitraryPrecisionInt &o);
     
+    ArbitraryPrecisionInt(ArbitraryPrecisionInt &&o);
+    
     ArbitraryPrecisionInt &operator=(const ArbitraryPrecisionInt &o);
+    
+    ArbitraryPrecisionInt &operator=(ArbitraryPrecisionInt &&o);
     
     ~ArbitraryPrecisionInt();
     
@@ -97,6 +106,18 @@ public:
     ArbitraryPrecisionInt multiple_ten(int bit);
     
     ArbitraryPrecisionInt devide_ten(int bit);
+    
+    explicit operator int() const;
+    
+    explicit operator double() const;
+    
+    explicit operator bool() const;
+    
+    explicit operator string() const;
 };
+
+const ArbitraryPrecisionInt ArbitraryPrecisionIntZero = ArbitraryPrecisionInt(0);
+
+const ArbitraryPrecisionInt ArbitraryPrecisionIntOne = ArbitraryPrecisionInt(1);
 
 #endif //CODE_ARBITRARYPRECISIONINT_H
