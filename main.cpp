@@ -7,41 +7,16 @@
 #include <algorithm>
 #include <sstream>
 #include <vector>
+#include <map>
 #include <ctime>
 
 using namespace std;
 
-class test {
-private:
-    int data;
-
-public:
-    test() {
-        cout << "constructor test()" << endl;
-    }
-    
-    test(int o) : data(o) {
-        cout << "constructor test(int o)" << endl;
-    }
-    
-    ~test() {
-        cout << "destructor ~test()" << endl;
-    }
-    
-    void display() const {
-        cout << data << endl;
-    }
-};
-
-void testfunc(const test &o = 0) {
-    o.display();
-}
-
 int main() {
-    time_t now = time(0);
-    string str = ctime(&now);
-    char temp[40]={'s','a'};
-    //strcpy(temp, str.c_str());
-    cout << temp;
+    map<int, int> m;
+    m[0] = 0;
+    m[1] = 1;
+    cout << (--m.begin())->first << endl;
+    cout << (++m.end())->first << endl;
     return 0;
 }
