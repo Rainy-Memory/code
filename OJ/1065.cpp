@@ -14,18 +14,43 @@ int n = 0;
 int a[10005] = {0};
 string str[1005];
 
+template <class T>
+static int divide(T* array, int low, int high, bool (*compare)(T,T)){
+    T temp=array[low];
+    while (low<high){
+        while(low<high&&!(compare(array[high], temp)))high--;
+        if(low<high)array[low]=array[high],low++;
+        while(low<high&&(compare(array[low],temp)||(!compare(array[low],temp)&&!compare(temp,array[low]))))low++;
+        if(low<high)array[high]=array[low],high--;
+    }
+    array[low]=temp;
+    return low;
+}
+
+template <class T>
+static void quickSort(T* array, int low, int high, bool (*compare)(T,T)){
+    if(low>=high)return;
+    int mid=divide(array, low, high, compare);
+    quickSort(array, low, mid-1, compare);
+    quickSort(array, mid+1, high, compare);
+}
+
 //sort
 template <class T>
 void sort(T *array, int start, int end, bool (*compare)(T,T)){
-    for(int i=start;i<=end;i++){
-        for(int j=start;j<end-i;j++){
-            if(!compare(array[j],array[j+1])){
-                T temp=array[j];
-                array[j]=array[j+1];
-                array[j+1]=temp;
-            }
-        }
-    }
+    //bubble
+//    for(int i=start;i<=end;i++){
+//        for(int j=start;j<end-i;j++){
+//            if(!compare(array[j],array[j+1])){
+//                T temp=array[j];
+//                array[j]=array[j+1];
+//                array[j+1]=temp;
+//            }
+//        }
+//    }
+
+    //quick sort
+    quickSort(array, start, end, compare);
 }
 
 bool IncreaseInt(int x,int y) { return x < y; }
