@@ -66,7 +66,6 @@ private:
     
     void inner_build(T *a, int s, int t, int p) {
         if (s == t) {
-            T aa = a[s];
             tree[p] = a[s];
             return;
         }

@@ -92,4 +92,57 @@ public:
     }
 };
 
+template<class T>
+class SegmentTree {
+private:
+    T *tree;
+    int size;
+    
+    T min(const T &o1, const T &o2) {
+        return o1 < o2 ? o1 : o2;
+    }
+    
+    void push_up(int p) {
+        tree[p] = min(tree[p << 1], tree[p << 1 | 1]);
+    }
+    
+    void inner_build(T *a, int s, int t, int p) {
+        if (s == t) {
+            tree[p] = a[s];
+            return;
+        }
+        int m = (s + t) >> 1;
+        inner_build(a, s, m, p << 1);
+        inner_build(a, m + 1, t, p << 1 | 1);
+        push_up(p);
+    }
+    
+    T inner_min(int l, int r, int s, int t, int p) {
+        if (l <= s && t <= r)return tree[p];
+        int m = (s + t) >> 1;
+        T ret = -1;
+        int temp;
+        if (l <= m) {
+            temp = inner_min(l, r, s, m, p << 1);
+            ret = ret == -1 ? temp : min(ret, temp);
+        }
+        if (m < r) {
+            temp = inner_min(l, r, m + 1, t, p << 1 | 1);
+            ret = ret == -1 ? temp : min(ret, temp);
+        }
+        return ret;
+    }
+
+public:
+    SegmentTree(T *a, int s) : size(s) {
+        int len = size << 2;
+        tree = new T[len];
+        inner_build(a, 1, size, 1);
+    }
+    
+    T rangeMin(int l, int r) {
+        return inner_min(l, r, 1, size, 1);
+    }
+};
+
 #endif //CODE_SEGMENTTREE_H
