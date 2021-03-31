@@ -1,5 +1,5 @@
 //
-// Created by Rainy Memory on 2021/3/11.
+// Created by Rainy Memory on 2021/3/30.
 //
 
 #include <iostream>
@@ -27,15 +27,15 @@ private:
     T *multiTag;
     
     inline void _multi(T &original, T delta) {
-        original = (original * delta) % mod;
+        original = (original * delta);
     }
     
     inline void _add(T &original, T delta) {
-        original = (original + delta) % mod;
+        original = (original + delta);
     }
     
     inline void push_up(int p) {
-        tree[p] = (tree[p << 1] + tree[p << 1 | 1]) % mod;
+        tree[p] = (tree[p << 1] + tree[p << 1 | 1]);
     }
     
     inline void push_down(int p, int s, int t) {
@@ -98,7 +98,7 @@ private:
     }
     
     T inner_sum(int l, int r, int s, int t, int p) {
-        if (l <= s && t <= r)return tree[p] % mod;
+        if (l <= s && t <= r)return tree[p];
         T ret(0);
         int m = (s + t) >> 1;
         if (addTag[p] != 0 || multiTag[p] != 1)push_down(p, s, t);
@@ -128,27 +128,20 @@ public:
     }
 };
 
-int n, m, op, x, y;
-long long a[100005] = {0}, p, k;
+int n, m, x, y, op;
+long long a[100007], d;
 
 int main() {
-    read(n), read(m), read(p);
+    read(n), read(m);
     for (int i = 1; i <= n; i++)read(a[i]);
-    SegmentTree<long long> st(a, n, p);
+    SegmentTree<long long> st(a, n, -1);
     for (int i = 0; i < m; i++) {
-        read(op);
+        read(op), read(x), read(y);
         if (op == 1) {
-            read(x), read(y), read(k);
-            st.rangeMulti(x, y, k);
+            read(d);
+            st.rangeAdd(x, y, d);
         }
-        else if (op == 2) {
-            read(x), read(y), read(k);
-            st.rangeAdd(x, y, k);
-        }
-        else {
-            read(x), read(y);
-            printf("%lld\n", st.querySum(x, y));
-        }
+        else cout << st.querySum(x, y) << endl;
     }
     return 0;
 }

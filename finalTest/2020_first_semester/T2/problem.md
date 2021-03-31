@@ -28,7 +28,7 @@
 
  - **如果你没有实现某个函数，请把主函数中调用该函数的代码注释掉再提交，以保证代码可以编译。除此之外，不能修改主函数中的其他内容。**
 
-```c++
+```s++
 #include <iostream>
 #include <iomanip>
 using namespace std;

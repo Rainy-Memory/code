@@ -1,5 +1,5 @@
 //
-// Created by Rainy Memory on 2021/3/11.
+// Created by Rainy Memory on 2021/3/30.
 //
 
 #include <iostream>
@@ -22,38 +22,29 @@ class SegmentTree {
 private:
     T *tree;
     int size;
-    T mod;
     T *addTag;
     T *multiTag;
     
-    inline void _multi(T &original, T delta) {
-        original = (original * delta) % mod;
-    }
-    
-    inline void _add(T &original, T delta) {
-        original = (original + delta) % mod;
-    }
-    
     inline void push_up(int p) {
-        tree[p] = (tree[p << 1] + tree[p << 1 | 1]) % mod;
+        tree[p] = tree[p << 1] + tree[p << 1 | 1];
     }
     
     inline void push_down(int p, int s, int t) {
         if (multiTag[p] != 1) {
-            _multi(multiTag[p << 1], multiTag[p]);
-            _multi(multiTag[p << 1 | 1], multiTag[p]);
-            _multi(addTag[p << 1], multiTag[p]);
-            _multi(addTag[p << 1 | 1], multiTag[p]);
-            _multi(tree[p << 1], multiTag[p]);
-            _multi(tree[p << 1 | 1], multiTag[p]);
+            multiTag[p << 1] *= multiTag[p];
+            multiTag[p << 1 | 1] *= multiTag[p];
+            addTag[p << 1] *= multiTag[p];
+            addTag[p << 1 | 1] *= multiTag[p];
+            tree[p << 1] *= multiTag[p];
+            tree[p << 1 | 1] *= multiTag[p];
             multiTag[p] = 1;
         }
         if (addTag[p] != 0) {
             int m = (s + t) >> 1;
-            _add(addTag[p << 1], addTag[p]);
-            _add(addTag[p << 1 | 1], addTag[p]);
-            _add(tree[p << 1], addTag[p] * (m - s + 1));
-            _add(tree[p << 1 | 1], addTag[p] * (t - m));
+            addTag[p << 1] += addTag[p];
+            addTag[p << 1 | 1] += addTag[p];
+            tree[p << 1] += addTag[p] * (m - s + 1);
+            tree[p << 1 | 1] += addTag[p] * (t - m);
             addTag[p] = 0;
         }
     }
@@ -72,8 +63,8 @@ private:
     
     void inner_add(int l, int r, int s, int t, int p, T v) {
         if (l <= s && t <= r) {
-            _add(addTag[p], v);
-            _add(tree[p], v * (t - s + 1));
+            addTag[p] += v;
+            tree[p] += v * (t - s + 1);
             return;
         }
         int m = (s + t) >> 1;
@@ -85,9 +76,9 @@ private:
     
     void inner_multi(int l, int r, int s, int t, int p, T v) {
         if (l <= s && t <= r) {
-            _multi(multiTag[p], v);
-            _multi(addTag[p], v);
-            _multi(tree[p], v);
+            multiTag[p] *= v;
+            addTag[p] *= v;
+            tree[p] *= v;
             return;
         }
         int m = (s + t) >> 1;
@@ -98,17 +89,17 @@ private:
     }
     
     T inner_sum(int l, int r, int s, int t, int p) {
-        if (l <= s && t <= r)return tree[p] % mod;
+        if (l <= s && t <= r)return tree[p];
         T ret(0);
         int m = (s + t) >> 1;
         if (addTag[p] != 0 || multiTag[p] != 1)push_down(p, s, t);
-        if (l <= m)_add(ret, inner_sum(l, r, s, m, p << 1));
-        if (m < r)_add(ret, inner_sum(l, r, m + 1, t, p << 1 | 1));
+        if (l <= m)ret += inner_sum(l, r, s, m, p << 1);
+        if (m < r)ret += inner_sum(l, r, m + 1, t, p << 1 | 1);
         return ret;
     }
 
 public:
-    SegmentTree(T *a, int n, T p) : size(n), mod(p) {
+    SegmentTree(T *a, int n) : size(n) {
         tree = new T[size << 2];
         addTag = new T[size << 2];
         multiTag = new T[size << 2];
@@ -128,27 +119,29 @@ public:
     }
 };
 
-int n, m, op, x, y;
-long long a[100005] = {0}, p, k;
+SegmentTree<int> *letterSegmentTree[26];
+char str[100007], c;
+int letter[26][100007];
+int n, m, x, l, r, pos, num;
 
 int main() {
-    read(n), read(m), read(p);
-    for (int i = 1; i <= n; i++)read(a[i]);
-    SegmentTree<long long> st(a, n, p);
-    for (int i = 0; i < m; i++) {
-        read(op);
-        if (op == 1) {
-            read(x), read(y), read(k);
-            st.rangeMulti(x, y, k);
-        }
-        else if (op == 2) {
-            read(x), read(y), read(k);
-            st.rangeAdd(x, y, k);
-        }
-        else {
-            read(x), read(y);
-            printf("%lld\n", st.querySum(x, y));
+    read(n), read(m);
+    scanf("%s", str);
+    for (int i = 0; i < n; i++)letter[str[i] - 'a'][i + 1]++;
+    for (int i = 0; i < 26; i++)letterSegmentTree[i] = new SegmentTree<int>(letter[i], n);
+    while (m--) {
+        read(l), read(r), read(x);
+        pos = l;
+        for (int i = 0; i < 26; i++) {
+            int index = x == 1 ? i : 25 - i;
+            num = letterSegmentTree[index]->querySum(l, r);
+            if (num == 0)continue;
+            letterSegmentTree[index]->rangeMulti(l, r, 0);
+            letterSegmentTree[index]->rangeAdd(pos, pos + num - 1, 1);
+            for (int j = pos - 1; j < pos + num - 1; j++)str[j] = char('a' + index);
+            pos += num;
         }
     }
+    printf("%s\n", str);
     return 0;
 }
