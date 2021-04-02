@@ -21,45 +21,24 @@ template<class T>
 class SegmentTree {
 private:
     T *tree;
+    T *add_tag;
     int size;
-    T mod;
-    T *addTag;
-    T *multiTag;
     
-    inline void _multi(T &original, T delta) {
-        original = (original * delta);
+    void push_up(int p) {
+        tree[p] = tree[p << 1] + tree[p << 1 | 1];
     }
     
-    inline void _add(T &original, T delta) {
-        original = (original + delta);
-    }
-    
-    inline void push_up(int p) {
-        tree[p] = (tree[p << 1] + tree[p << 1 | 1]);
-    }
-    
-    inline void push_down(int p, int s, int t) {
-        if (multiTag[p] != 1) {
-            _multi(multiTag[p << 1], multiTag[p]);
-            _multi(multiTag[p << 1 | 1], multiTag[p]);
-            _multi(addTag[p << 1], multiTag[p]);
-            _multi(addTag[p << 1 | 1], multiTag[p]);
-            _multi(tree[p << 1], multiTag[p]);
-            _multi(tree[p << 1 | 1], multiTag[p]);
-            multiTag[p] = 1;
-        }
-        if (addTag[p] != 0) {
-            int m = (s + t) >> 1;
-            _add(addTag[p << 1], addTag[p]);
-            _add(addTag[p << 1 | 1], addTag[p]);
-            _add(tree[p << 1], addTag[p] * (m - s + 1));
-            _add(tree[p << 1 | 1], addTag[p] * (t - m));
-            addTag[p] = 0;
-        }
+    void push_down(int p, int s, int t) {
+        int m = (s + t) >> 1;
+        tree[p << 1] += add_tag[p] * (m - s + 1);
+        tree[p << 1 | 1] += add_tag[p] * (t - m);
+        add_tag[p << 1] += add_tag[p];
+        add_tag[p << 1 | 1] += add_tag[p];
+        add_tag[p] = 0;
     }
     
     void inner_build(T *a, int s, int t, int p) {
-        addTag[p] = 0, multiTag[p] = 1;
+        add_tag[p] = 0;
         if (s == t) {
             tree[p] = a[s];
             return;
@@ -70,61 +49,47 @@ private:
         push_up(p);
     }
     
-    void inner_add(int l, int r, int s, int t, int p, T v) {
+    void inner_add(int l, int r, int s, int t, int p, T delta) {
         if (l <= s && t <= r) {
-            _add(addTag[p], v);
-            _add(tree[p], v * (t - s + 1));
+            tree[p] += (t - s + 1) * delta;
+            add_tag[p] += delta;
             return;
         }
+        if (add_tag[p] != 0 && s < t)push_down(p, s, t);
         int m = (s + t) >> 1;
-        if (addTag[p] != 0 || multiTag[p] != 1)push_down(p, s, t);
-        if (l <= m)inner_add(l, r, s, m, p << 1, v);
-        if (m < r)inner_add(l, r, m + 1, t, p << 1 | 1, v);
+        if (l <= m)inner_add(l, r, s, m, p << 1, delta);
+        if (m < r)inner_add(l, r, m + 1, t, p << 1 | 1, delta);
         push_up(p);
     }
     
-    void inner_multi(int l, int r, int s, int t, int p, T v) {
-        if (l <= s && t <= r) {
-            _multi(multiTag[p], v);
-            _multi(addTag[p], v);
-            _multi(tree[p], v);
-            return;
-        }
-        int m = (s + t) >> 1;
-        if (addTag[p] != 0 || multiTag[p] != 1)push_down(p, s, t);
-        if (l <= m)inner_multi(l, r, s, m, p << 1, v);
-        if (m < r)inner_multi(l, r, m + 1, t, p << 1 | 1, v);
-        push_up(p);
-    }
-    
-    T inner_sum(int l, int r, int s, int t, int p) {
+    T inner_query(int l, int r, int s, int t, int p) {
         if (l <= s && t <= r)return tree[p];
-        T ret(0);
+        if (add_tag[p] != 0 && s < t)push_down(p, s, t);
         int m = (s + t) >> 1;
-        if (addTag[p] != 0 || multiTag[p] != 1)push_down(p, s, t);
-        if (l <= m)_add(ret, inner_sum(l, r, s, m, p << 1));
-        if (m < r)_add(ret, inner_sum(l, r, m + 1, t, p << 1 | 1));
+        T ret(0);
+        if (l <= m)ret += inner_query(l, r, s, m, p << 1);
+        if (m < r)ret += inner_query(l, r, m + 1, t, p << 1 | 1);
         return ret;
     }
 
 public:
-    SegmentTree(T *a, int n, T p) : size(n), mod(p) {
+    SegmentTree(T *a, int n) : size(n) {
         tree = new T[size << 2];
-        addTag = new T[size << 2];
-        multiTag = new T[size << 2];
+        add_tag = new T[size << 2];
         inner_build(a, 1, size, 1);
     }
     
-    void rangeAdd(int l, int r, T v) {
-        inner_add(l, r, 1, size, 1, v);
+    ~SegmentTree() {
+        delete[]tree;
+        delete[]add_tag;
     }
     
-    void rangeMulti(int l, int r, T v) {
-        inner_multi(l, r, 1, size, 1, v);
+    void rangeAdd(int l, int r, T delta) {
+        inner_add(l, r, 1, size, 1, delta);
     }
     
     T querySum(int l, int r) {
-        return inner_sum(l, r, 1, size, 1);
+        return inner_query(l, r, 1, size, 1);
     }
 };
 
@@ -134,7 +99,7 @@ long long a[100007], d;
 int main() {
     read(n), read(m);
     for (int i = 1; i <= n; i++)read(a[i]);
-    SegmentTree<long long> st(a, n, -1);
+    SegmentTree<long long> st(a, n);
     for (int i = 0; i < m; i++) {
         read(op), read(x), read(y);
         if (op == 1) {
