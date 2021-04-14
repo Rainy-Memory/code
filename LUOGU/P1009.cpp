@@ -1,5 +1,5 @@
 //
-// Created by Rainy Memory on 2020/12/29.
+// Created by Rainy Memory on 2021/4/9.
 //
 
 #pragma region ArbitraryPrecisionInt
@@ -60,7 +60,7 @@ private:
 public:
     ArbitraryPrecisionInt();
     
-    ArbitraryPrecisionInt(int o);
+    explicit ArbitraryPrecisionInt(int o);
     
     explicit ArbitraryPrecisionInt(double o);
     
@@ -562,9 +562,13 @@ ArbitraryPrecisionInt::operator string() const {
 using namespace std;
 
 int main() {
-    ArbitraryPrecisionInt n, res;
+    int n;
+    ArbitraryPrecisionInt res(0), now(1);
     cin >> n;
-    res = n * (n - 1) * (n - 2) * (n - 3) / 24;
+    for (int i = 1; i <= n; i++) {
+        now = now * ArbitraryPrecisionInt(i);
+        res += now;
+    }
     cout << res << endl;
     return 0;
 }

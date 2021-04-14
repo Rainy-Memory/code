@@ -1,5 +1,5 @@
 //
-// Created by Rainy Memory on 2020/12/29.
+// Created by Rainy Memory on 2021/4/9.
 //
 
 #pragma region ArbitraryPrecisionInt
@@ -17,8 +17,7 @@ class DevidedByZero {
 };
 
 class ArbitraryPrecisionInt {
-
-private:
+public:
     string str;
     int len = 0;
     int *num = nullptr; //reversed
@@ -60,7 +59,7 @@ private:
 public:
     ArbitraryPrecisionInt();
     
-    ArbitraryPrecisionInt(int o);
+    explicit ArbitraryPrecisionInt(int o);
     
     explicit ArbitraryPrecisionInt(double o);
     
@@ -220,6 +219,7 @@ ArbitraryPrecisionInt &ArbitraryPrecisionInt::operator=(ArbitraryPrecisionInt &&
     positive = o.positive;
     num = o.num;
     o.num = nullptr;
+    return *this;
 }
 
 ArbitraryPrecisionInt::~ArbitraryPrecisionInt() {
@@ -562,9 +562,22 @@ ArbitraryPrecisionInt::operator string() const {
 using namespace std;
 
 int main() {
-    ArbitraryPrecisionInt n, res;
-    cin >> n;
-    res = n * (n - 1) * (n - 2) * (n - 3) / 24;
-    cout << res << endl;
-    return 0;
+    int p;
+    cin >> p;
+    ArbitraryPrecisionInt res(1), mod(1);
+    for (int i = 0; i < 500; i++)mod = mod * 10;
+    for (int i = 0; i < p; i++) {
+        res = res * 2;
+    }
+    res = res - ArbitraryPrecisionInt(1);
+    cout << res.str.length() << endl;
+    string res_str(res.str);
+    while (res_str.length() < 500)
+        res_str = '0' + res_str;
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 50; j++) {
+            cout << res_str[i * 50 + j];
+        }
+        cout << endl;
+    }
 }
