@@ -14,11 +14,12 @@ using namespace std;
 int N, M, op, x, y;
 double arr[maxn], k;
 
+template<class T>
 class SegmentTree {
 private:
-    double *tree;
-    double *power;
-    double *add_tag;
+    T *tree;
+    T *power;
+    T *add_tag;
     int size;
     
     void push_up(int p) {
@@ -28,22 +29,16 @@ private:
     
     void push_down(int p, int s, int t) {
         int m = (s + t) >> 1;
-        power[p << 1] += 2 * tree[p << 1] * add_tag[p] + add_tag[p] * add_tag[p] * (m - s + 1);
-        power[p << 1 | 1] += 2 * tree[p << 1 | 1] * add_tag[p] + add_tag[p] * add_tag[p] * (t - m);
-        tree[p << 1] += add_tag[p] * (m - s + 1);
-        tree[p << 1 | 1] += add_tag[p] * (t - m);
         add_tag[p << 1] += add_tag[p];
         add_tag[p << 1 | 1] += add_tag[p];
+        power[p << 1] += 2 * add_tag[p] * tree[p << 1] + (m - s + 1) * add_tag[p] * add_tag[p];
+        power[p << 1 | 1] += 2 * add_tag[p] * tree[p << 1 | 1] + (t - m) * add_tag[p] * add_tag[p];
+        tree[p << 1] += add_tag[p] * (m - s + 1);
+        tree[p << 1 | 1] += add_tag[p] * (t - m);
         add_tag[p] = 0;
     }
     
-    void put_add_tag(int p, int s, int t, double delta) {
-        power[p] += 2 * tree[p] * delta + delta * delta * (t - s + 1);
-        tree[p] += delta * (t - s + 1);
-        add_tag[p] += delta;
-    }
-    
-    void inner_build(double *a, int s, int t, int p) {
+    void inner_build(T *a, int s, int t, int p) {
         add_tag[p] = 0;
         if (s == t) {
             tree[p] = a[s];
@@ -56,9 +51,11 @@ private:
         push_up(p);
     }
     
-    void inner_add(int l, int r, int s, int t, int p, double delta) {
+    void inner_add(int l, int r, int s, int t, int p, T delta) {
         if (l <= s && t <= r) {
-            put_add_tag(p, s, t, delta);
+            power[p] += 2 * delta * tree[p] + (t - s + 1) * delta * delta;
+            tree[p] += (t - s + 1) * delta;
+            add_tag[p] += delta;
             return;
         }
         if (add_tag[p] != 0 && s < t)push_down(p, s, t);
@@ -68,41 +65,42 @@ private:
         push_up(p);
     }
     
-    double inner_query(int l, int r, int s, int t, int p, bool query_power) {
+    T inner_query(int l, int r, int s, int t, int p, bool query_power) {
         if (l <= s && t <= r) {
             if (query_power)return power[p];
             else return tree[p];
         }
         if (add_tag[p] != 0 && s < t)push_down(p, s, t);
         int m = (s + t) >> 1;
-        double ret(0);
+        T ret(0);
         if (l <= m)ret += inner_query(l, r, s, m, p << 1, query_power);
         if (m < r)ret += inner_query(l, r, m + 1, t, p << 1 | 1, query_power);
         return ret;
     }
 
 public:
-    SegmentTree(double *a, int s) : size(s) {
-        tree = new double[size << 2];
-        power = new double[size << 2];
-        add_tag = new double[size << 2];
+    SegmentTree(T *a, int s) : size(s) {
+        tree = new T[size << 2];
+        power = new T[size << 2];
+        add_tag = new T[size << 2];
         inner_build(a, 1, size, 1);
     }
     
     ~SegmentTree() {
         delete[]tree;
+        delete[]power;
         delete[]add_tag;
     }
     
-    void rangeAdd(int l, int r, double delta) {
+    void rangeAdd(int l, int r, T delta) {
         inner_add(l, r, 1, size, 1, delta);
     }
     
-    double querySum(int l, int r) {
+    T querySum(int l, int r) {
         return inner_query(l, r, 1, size, 1, false);
     }
     
-    double queryPowerSum(int l, int r) {
+    T queryPowerSum(int l, int r) {
         return inner_query(l, r, 1, size, 1, true);
     }
 };
@@ -111,10 +109,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin >> N >> M;
     for (int i = 1; i <= N; i++)cin >> arr[i];
-    SegmentTree st(arr, N);
-    for (int i = 0; i < M; i++) {
-        
-    }
+    SegmentTree<double> st(arr, N);
     for (int i = 0; i < M; i++) {
         cin >> op >> x >> y;
         if (op == 1) {

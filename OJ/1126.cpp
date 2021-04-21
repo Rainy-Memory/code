@@ -6,12 +6,47 @@
 #include <cstring>
 #include <iostream>
 #include <cmath>
-#include <queue>
+
+namespace RainyMemory {
+    template<class T, int max_length, class Compare = std::less<T>>
+    class priority_queue {
+    private:
+        Compare cmp;
+        T sequence[max_length];
+        int tail = 1;
+    
+    public:
+        priority_queue() = default;
+        
+        void push(const T &o) {
+            sequence[tail] = o;
+            int index = tail++;
+            while (cmp(sequence[index >> 1], sequence[index]) && index > 1)std::swap(sequence[index >> 1], sequence[index]), index >>= 1;
+        }
+        
+        int size() const {
+            return tail - 1;
+        }
+        
+        const T &top() const {
+            return sequence[1];
+        }
+        
+        void pop() {
+            sequence[1] = sequence[--tail];
+            int now = 1, child;
+            while ((now << 1) < tail) {
+                child = (now << 1 | 1) < tail && cmp(sequence[now << 1], sequence[now << 1 | 1]) ? now << 1 | 1 : now << 1;
+                if (cmp(sequence[now], sequence[child]))std::swap(sequence[now], sequence[child]), now = child;
+                else break;
+            }
+        }
+    };
+}
 
 using namespace std;
 
 #define maxn 300007
-#define maxm 1007
 int n, m;
 
 struct node {
@@ -32,7 +67,7 @@ struct node {
 
 int main() {
     ios::sync_with_stdio(false);
-    priority_queue<node> heap;
+    RainyMemory::priority_queue<node, maxn> heap;
     cin >> n >> m;
     for (int i = 0; i < n; i++) {
         long long temp;
