@@ -1,3 +1,0 @@
-C:/RainyMemory's Workplace/CLionProjects/code/cmake-build-debug/CMakeFiles/code.dir
-C:/RainyMemory's Workplace/CLionProjects/code/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/RainyMemory's Workplace/CLionProjects/code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
